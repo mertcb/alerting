@@ -16,9 +16,9 @@
 package com.amazon.opendistroforelasticsearch.alerting.core.model
 
 import org.elasticsearch.common.io.stream.Writeable
-import org.elasticsearch.common.xcontent.ToXContentObject
-import org.elasticsearch.common.xcontent.XContentParser
-import org.elasticsearch.common.xcontent.XContentParser.Token
+import org.elasticsearch.xcontent.ToXContentObject
+import org.elasticsearch.xcontent.XContentParser
+import org.elasticsearch.xcontent.XContentParser.Token
 import org.elasticsearch.common.xcontent.XContentParserUtils.ensureExpectedToken
 import java.io.IOException
 

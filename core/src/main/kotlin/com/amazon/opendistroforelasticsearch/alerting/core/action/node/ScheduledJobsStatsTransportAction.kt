@@ -24,6 +24,7 @@ import org.apache.logging.log4j.LogManager
 import org.elasticsearch.action.FailedNodeException
 import org.elasticsearch.action.support.ActionFilters
 import org.elasticsearch.action.support.nodes.BaseNodeRequest
+import org.elasticsearch.cluster.node.DiscoveryNode
 import org.elasticsearch.action.support.nodes.TransportNodesAction
 import org.elasticsearch.cluster.health.ClusterIndexHealth
 import org.elasticsearch.cluster.service.ClusterService
@@ -72,8 +73,8 @@ class ScheduledJobsStatsTransportAction : TransportNodesAction<ScheduledJobsStat
         return ScheduledJobStatusRequest(request)
     }
 
-    override fun newNodeResponse(si: StreamInput): ScheduledJobStats {
-        return ScheduledJobStats(si)
+    override fun newNodeResponse(si: StreamInput, node: DiscoveryNode): ScheduledJobStats {
+        return ScheduledJobStats(si, node)
     }
 
     override fun newResponse(

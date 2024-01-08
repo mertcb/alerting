@@ -23,7 +23,7 @@ import org.elasticsearch.client.AdminClient
 import org.elasticsearch.cluster.health.ClusterIndexHealth
 import org.elasticsearch.cluster.service.ClusterService
 import org.elasticsearch.common.settings.Settings
-import org.elasticsearch.common.xcontent.XContentType
+import org.elasticsearch.xcontent.XContentType
 
 /**
  * Initialize the Elasticsearch components required to run [ScheduledJobs].

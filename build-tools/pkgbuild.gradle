@@ -1,11 +1,11 @@
-apply plugin: 'nebula.ospackage'
+apply plugin: 'com.netflix.nebula.ospackage'
 
 // This is afterEvaluate because the bundlePlugin ZIP task is updated afterEvaluate and changes the ZIP name to match the plugin name
 afterEvaluate {
     ospackage {
-        packageName = "opendistro-${name}"
+        packageName = "opendistro-alerting"
         release = isSnapshot ? "0.1" : '1'
-        version = "${project.version}" - "-SNAPSHOT"
+        version =  "0.1"
 
         into '/usr/share/elasticsearch/plugins'
         from(zipTree(bundlePlugin.archivePath)) {
@@ -17,7 +17,7 @@ afterEvaluate {
         fileMode 0644
         dirMode 0755
 
-        requires('elasticsearch-oss', versions.elasticsearch, EQUAL)
+        requires('elasticsearch-oss', "7.17.16", EQUAL)
         packager = 'Amazon'
         vendor = 'Amazon'
         os = 'LINUX'
@@ -39,9 +39,9 @@ afterEvaluate {
         task renameRpm(type: Copy) {
             from("$buildDir/distributions")
             into("$buildDir/distributions")
-            include archiveName
-            rename archiveName, "${packageName}-${version}.rpm"
-            doLast { delete file("$buildDir/distributions/$archiveName") }
+            include packageName
+            rename packageName, "testpackage.rpm"
+            doLast { delete file("$buildDir/distributions/$packageName") }
         }
     }
     
@@ -52,9 +52,9 @@ afterEvaluate {
         task renameDeb(type: Copy) {
             from("$buildDir/distributions")
             into("$buildDir/distributions")
-            include archiveName
-            rename archiveName, "${packageName}-${version}.deb"
-            doLast { delete file("$buildDir/distributions/$archiveName") }
+            include packageName
+            rename packageName, "testpackage.deb"
+            doLast { delete file("$buildDir/distributions/$packageName") }
         }
     }
 }

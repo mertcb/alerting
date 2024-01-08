@@ -15,15 +15,15 @@
 
 package com.amazon.opendistroforelasticsearch.alerting.core.model
 
-import org.elasticsearch.common.CheckedFunction
-import org.elasticsearch.common.ParseField
+import org.elasticsearch.core.CheckedFunction
+import org.elasticsearch.xcontent.ParseField
 import org.elasticsearch.common.io.stream.StreamInput
 import org.elasticsearch.common.io.stream.StreamOutput
-import org.elasticsearch.common.xcontent.NamedXContentRegistry
-import org.elasticsearch.common.xcontent.ToXContent
-import org.elasticsearch.common.xcontent.XContentBuilder
-import org.elasticsearch.common.xcontent.XContentParser
-import org.elasticsearch.common.xcontent.XContentParser.Token
+import org.elasticsearch.xcontent.NamedXContentRegistry
+import org.elasticsearch.xcontent.ToXContent
+import org.elasticsearch.xcontent.XContentBuilder
+import org.elasticsearch.xcontent.XContentParser
+import org.elasticsearch.xcontent.XContentParser.Token
 import org.elasticsearch.common.xcontent.XContentParserUtils.ensureExpectedToken
 import org.elasticsearch.search.builder.SearchSourceBuilder
 import java.io.IOException

@@ -16,7 +16,7 @@
 package com.amazon.opendistroforelasticsearch.alerting.elasticapi
 
 import com.amazon.opendistroforelasticsearch.commons.InjectSecurity
-import com.amazon.opendistroforelasticsearch.commons.authuser.User
+import com.amazon.opendistroforelasticsearch.alerting.core.external.authuser.User
 import kotlinx.coroutines.ThreadContextElement
 import kotlinx.coroutines.delay
 import org.apache.logging.log4j.Logger
@@ -30,12 +30,12 @@ import org.elasticsearch.common.bytes.BytesReference
 import org.elasticsearch.common.settings.Settings
 import org.elasticsearch.common.util.concurrent.ThreadContext
 import org.elasticsearch.common.util.concurrent.ThreadContext.StoredContext
-import org.elasticsearch.common.xcontent.ToXContent
-import org.elasticsearch.common.xcontent.XContentBuilder
+import org.elasticsearch.xcontent.ToXContent
+import org.elasticsearch.xcontent.XContentBuilder
 import org.elasticsearch.common.xcontent.XContentHelper
-import org.elasticsearch.common.xcontent.XContentParser
+import org.elasticsearch.xcontent.XContentParser
 import org.elasticsearch.common.xcontent.XContentParserUtils
-import org.elasticsearch.common.xcontent.XContentType
+import org.elasticsearch.xcontent.XContentType
 import org.elasticsearch.index.query.BoolQueryBuilder
 import org.elasticsearch.index.query.QueryBuilders
 import org.elasticsearch.rest.RestStatus
